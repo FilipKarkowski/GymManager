@@ -10,33 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_25_214941) do
-  create_table "activities", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_04_25_224904) do
   create_table "memberships", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "activity_id", null: false
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activity_id"], name: "index_memberships_on_activity_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
-  create_table "trainings", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "activity_id", null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
+  create_table "schedules", force: :cascade do |t|
+    t.integer "training_id", null: false
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activity_id"], name: "index_trainings_on_activity_id"
-    t.index ["user_id"], name: "index_trainings_on_user_id"
+    t.index ["training_id"], name: "index_schedules_on_training_id"
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,8 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_25_214941) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "memberships", "activities"
   add_foreign_key "memberships", "users"
-  add_foreign_key "trainings", "activities"
-  add_foreign_key "trainings", "users"
+  add_foreign_key "schedules", "trainings"
 end

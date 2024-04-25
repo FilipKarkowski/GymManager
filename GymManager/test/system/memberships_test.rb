@@ -14,7 +14,6 @@ class MembershipsTest < ApplicationSystemTestCase
     visit memberships_url
     click_on "New membership"
 
-    fill_in "Activity", with: @membership.activity_id
     fill_in "End date", with: @membership.end_date
     fill_in "Start date", with: @membership.start_date
     fill_in "User", with: @membership.user_id
@@ -28,7 +27,6 @@ class MembershipsTest < ApplicationSystemTestCase
     visit membership_url(@membership)
     click_on "Edit this membership", match: :first
 
-    fill_in "Activity", with: @membership.activity_id
     fill_in "End date", with: @membership.end_date
     fill_in "Start date", with: @membership.start_date
     fill_in "User", with: @membership.user_id

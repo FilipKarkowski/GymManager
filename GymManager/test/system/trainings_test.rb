@@ -14,10 +14,8 @@ class TrainingsTest < ApplicationSystemTestCase
     visit trainings_url
     click_on "New training"
 
-    fill_in "Activity", with: @training.activity_id
-    fill_in "End time", with: @training.end_time
-    fill_in "Start time", with: @training.start_time
-    fill_in "User", with: @training.user_id
+    fill_in "Description", with: @training.description
+    fill_in "Name", with: @training.name
     click_on "Create Training"
 
     assert_text "Training was successfully created"
@@ -28,10 +26,8 @@ class TrainingsTest < ApplicationSystemTestCase
     visit training_url(@training)
     click_on "Edit this training", match: :first
 
-    fill_in "Activity", with: @training.activity_id
-    fill_in "End time", with: @training.end_time
-    fill_in "Start time", with: @training.start_time
-    fill_in "User", with: @training.user_id
+    fill_in "Description", with: @training.description
+    fill_in "Name", with: @training.name
     click_on "Update Training"
 
     assert_text "Training was successfully updated"

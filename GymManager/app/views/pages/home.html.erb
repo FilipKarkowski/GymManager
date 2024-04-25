@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- app/views/pages/home.html.erb -->
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold my-4">Witaj na mojej stronie głównej!</h1>
+
+  <table class="table-auto">
+    <thead>
+    <tr>
+      <% Date::DAYNAMES.each do |day| %>
+        <th class="px-4 py-2"><%= day %></th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <% (Date.today.beginning_of_week..Date.today.end_of_week).each do |date| %>
+        <td class="border px-4 py-2">
+          <h2 class="text-lg font-semibold mb-2"><%= date.strftime("%A, %d %B %Y") %></h2>
+          <% trainings_for_date = Training.where("start_time >= ? AND start_time <= ?", date.beginning_of_day, date.end_of_day) %>
+          <% if trainings_for_date.any? %>
+            <ul>
+              <% trainings_for_date.each do |training| %>
+                <li><%= "#{training.start_time.strftime("%H:%M")} - #{training.end_time.strftime("%H:%M")}: #{training.activity.name}" %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>Brak treningów</p>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    </tbody>
+  </table>
+</div>

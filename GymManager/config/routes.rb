@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'pages/home'
-  resources :users
-  resources :activities
-  resources :memberships
+  resources :schedules
   resources :trainings
+  resources :memberships
+  resources :users
+  get 'pages/home'
   root 'pages#home'
+  post 'set_week', to: 'pages#set_week'
+
+
 end

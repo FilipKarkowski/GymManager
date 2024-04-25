@@ -17,7 +17,7 @@ class TrainingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create training" do
     assert_difference("Training.count") do
-      post trainings_url, params: { training: { activity_id: @training.activity_id, end_time: @training.end_time, start_time: @training.start_time, user_id: @training.user_id } }
+      post trainings_url, params: { training: { description: @training.description, name: @training.name } }
     end
 
     assert_redirected_to training_url(Training.last)
@@ -34,7 +34,7 @@ class TrainingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update training" do
-    patch training_url(@training), params: { training: { activity_id: @training.activity_id, end_time: @training.end_time, start_time: @training.start_time, user_id: @training.user_id } }
+    patch training_url(@training), params: { training: { description: @training.description, name: @training.name } }
     assert_redirected_to training_url(@training)
   end
 
