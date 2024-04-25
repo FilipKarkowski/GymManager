@@ -10,66 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_180658) do
-  create_table "attendants", force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "course_id", null: false
-    t.date "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_attendants_on_course_id"
-    t.index ["student_id"], name: "index_attendants_on_student_id"
-  end
-
-  create_table "courses", force: :cascade do |t|
-    t.string "name"
-    t.integer "ects", limit: 1
-    t.boolean "egzam"
-    t.integer "field_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["field_id"], name: "index_courses_on_field_id"
-  end
-
-  create_table "courses_groups", id: false, force: :cascade do |t|
-    t.integer "course_id", null: false
-    t.integer "group_id", null: false
-  end
-
-  create_table "fields", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_04_25_214941) do
+  create_table "activities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "grades", id: false, force: :cascade do |t|
-    t.integer "course_id", null: false
-    t.integer "student_id", null: false
-    t.decimal "grade", precision: 4, scale: 1
-  end
-
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.string "shortname"
+  create_table "memberships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "activity_id", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "field_id"
-    t.index ["field_id"], name: "index_groups_on_field_id"
+    t.index ["activity_id"], name: "index_memberships_on_activity_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "sname"
-    t.string "indeks", limit: 5
-    t.integer "group_id", null: false
+  create_table "trainings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "activity_id", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_students_on_group_id"
+    t.index ["activity_id"], name: "index_trainings_on_activity_id"
+    t.index ["user_id"], name: "index_trainings_on_user_id"
   end
 
-  add_foreign_key "attendants", "courses"
-  add_foreign_key "attendants", "students"
-  add_foreign_key "courses", "fields"
-  add_foreign_key "groups", "fields"
-  add_foreign_key "students", "groups"
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "memberships", "activities"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "trainings", "activities"
+  add_foreign_key "trainings", "users"
 end
