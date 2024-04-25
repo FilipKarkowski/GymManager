@@ -1,0 +1,453 @@
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:13:38 +0200
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 9 pending migrations:
+
+db/migrate/20240301074837_create_groups.rb
+db/migrate/20240301075005_create_students.rb
+db/migrate/20240304131903_create_fields.rb
+db/migrate/20240304133301_add_field_to_group.rb
+db/migrate/20240304134929_create_courses.rb
+db/migrate/20240304141941_create_join_table_course_group.rb
+db/migrate/20240312140105_create_join_table_course_student.rb
+db/migrate/20240312140533_add_grade_to_course_student.rb
+db/migrate/20240322180658_create_attendant.rb
+
+
+):
+  
+activerecord (7.1.3.2) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3.2) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3.2) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3.2) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/rails/actions" for 127.0.0.1 at 2024-04-25 23:13:41 +0200
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-04-25 21:13:41.636154', '2024-04-25 21:13:41.636158') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGroups (20240301074837)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "shortname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240301074837') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateStudents (20240301075005)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "sname" varchar, "indeks" varchar(5), "group_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_92bb7a13fa"
+FOREIGN KEY ("group_id")
+  REFERENCES "groups" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_students_on_group_id" ON "students" ("group_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240301075005') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFields (20240304131903)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "fields" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240304131903') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddFieldToGroup (20240304133301)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "groups" ADD "field_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_groups_on_field_id" ON "groups" ("field_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agroups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "shortname" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "field_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agroups_on_field_id" ON "agroups" ("field_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agroups" ("id","name","shortname","created_at","updated_at","field_id")
+                     SELECT "id","name","shortname","created_at","updated_at","field_id" FROM "groups"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "groups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "shortname" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "field_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_4b9283503b"
+FOREIGN KEY ("field_id")
+  REFERENCES "fields" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_groups_on_field_id" ON "groups" ("field_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "groups" ("id","name","shortname","created_at","updated_at","field_id")
+                     SELECT "id","name","shortname","created_at","updated_at","field_id" FROM "agroups"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "agroups"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240304133301') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20240304134929)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ects" integer(1), "egzam" boolean, "field_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_613527a570"
+FOREIGN KEY ("field_id")
+  REFERENCES "fields" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_courses_on_field_id" ON "courses" ("field_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240304134929') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJoinTableCourseGroup (20240304141941)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "courses_groups" ("course_id" integer NOT NULL, "group_id" integer NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240304141941') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJoinTableCourseStudent (20240312140105)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "courses_students" ("course_id" integer NOT NULL, "student_id" integer NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240312140105') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddGradeToCourseStudent (20240312140533)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mALTER TABLE "courses_students" RENAME TO "grades"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "grades" ADD "grade" decimal(4,1)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240312140533') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAttendant (20240322180658)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "attendants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer NOT NULL, "course_id" integer NOT NULL, "data" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_775c02f45d"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_b77883e3fa"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendants_on_student_id" ON "attendants" ("student_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendants_on_course_id" ON "attendants" ("course_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240322180658') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:13:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."group_id" ASC[0m
+  ↳ app/views/students/index.html.erb:18
+  Rendered students/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1262)
+  Rendered layout layouts/application.html.erb (Duration: 2007.0ms | Allocations: 136283)
+Completed 500 Internal Server Error in 2099ms (ActiveRecord: 2.0ms | Allocations: 153560)
+
+
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/Users/Filip/Downloads/RubyProjekt/Inf3-24/tmp/cache/assets/sprockets/v4.0.0/yv/yv1Q4OFCuYZt6zkyYI3QWQD5TWAeUr6DlLse2nCPmn4.cache.30340.25140.765549, C:/Users/Filip/Downloads/RubyProjekt/Inf3-24/tmp/cache/assets/sprockets/v4.0.0/yv/yv1Q4OFCuYZt6zkyYI3QWQD5TWAeUr6DlLse2nCPmn4.cache)):
+  
+sprockets (4.2.1) lib/sprockets/path_utils.rb:362:in `rename'
+sprockets (4.2.1) lib/sprockets/path_utils.rb:362:in `atomic_write'
+sprockets (4.2.1) lib/sprockets/cache/file_store.rb:112:in `set'
+sprockets (4.2.1) lib/sprockets/cache.rb:227:in `set'
+sprockets (4.2.1) lib/sprockets/cache.rb:143:in `set'
+sprockets (4.2.1) lib/sprockets/loader.rb:343:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/bundle.rb:32:in `block in call'
+C:/Ruby32-x64/lib/ruby/3.2.0/set.rb:511:in `each_key'
+C:/Ruby32-x64/lib/ruby/3.2.0/set.rb:511:in `each'
+sprockets (4.2.1) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.1) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:359:in `run_task'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:350:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:341:in `loop'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:341:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:340:in `catch'
+concurrent-ruby (1.2.3) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:340:in `block in create_worker'
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:13:46 +0200
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."group_id" ASC[0m
+  ↳ app/views/students/index.html.erb:18
+  Rendered students/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 563)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 307)
+  Rendered layout layouts/application.html.erb (Duration: 78.5ms | Allocations: 47774)
+Completed 200 OK in 82ms (Views: 79.6ms | ActiveRecord: 0.1ms | Allocations: 48133)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2024-04-25 23:13:47 +0200
+Processing by StudentsController#new as HTML
+  Rendering layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering students/new.html.erb within layouts/turbo_rails/frame
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/students/_form.html.erb:35
+  Rendered students/_form.html.erb (Duration: 54.7ms | Allocations: 10348)
+  Rendered students/new.html.erb within layouts/turbo_rails/frame (Duration: 56.6ms | Allocations: 10642)
+  Rendered layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb (Duration: 57.5ms | Allocations: 10875)
+Completed 200 OK in 87ms (Views: 59.9ms | ActiveRecord: 0.4ms | Allocations: 21654)
+
+
+Started POST "/students" for 127.0.0.1 at 2024-04-25 23:13:52 +0200
+Processing by StudentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "student"=>{"name"=>"sad", "sname"=>"dsadas", "indeks"=>"sadasda"}, "commit"=>"Zapisz"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/students_controller.rb:27:in `block in create'
+  Rendering layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering students/new.html.erb within layouts/turbo_rails/frame
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/students/_form.html.erb:35
+  Rendered students/_form.html.erb (Duration: 4.3ms | Allocations: 2398)
+  Rendered students/new.html.erb within layouts/turbo_rails/frame (Duration: 4.9ms | Allocations: 2477)
+  Rendered layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb (Duration: 5.3ms | Allocations: 2580)
+Completed 422 Unprocessable Entity in 28ms (Views: 5.9ms | ActiveRecord: 1.5ms | Allocations: 7908)
+
+
+Started POST "/students" for 127.0.0.1 at 2024-04-25 23:13:59 +0200
+Processing by StudentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "student"=>{"name"=>"sad", "sname"=>"dsadas", "indeks"=>"32323"}, "commit"=>"Zapisz"}
+  Rendering layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering students/new.html.erb within layouts/turbo_rails/frame
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/students/_form.html.erb:35
+  Rendered students/_form.html.erb (Duration: 2.3ms | Allocations: 2201)
+  Rendered students/new.html.erb within layouts/turbo_rails/frame (Duration: 2.6ms | Allocations: 2280)
+  Rendered layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb (Duration: 2.9ms | Allocations: 2383)
+Completed 422 Unprocessable Entity in 7ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 3494)
+
+
+Started POST "/students" for 127.0.0.1 at 2024-04-25 23:14:01 +0200
+Processing by StudentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "student"=>{"name"=>"sad", "sname"=>"dsadas", "indeks"=>"323231"}, "commit"=>"Zapisz"}
+  Rendering layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering students/new.html.erb within layouts/turbo_rails/frame
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/students/_form.html.erb:35
+  Rendered students/_form.html.erb (Duration: 2.6ms | Allocations: 1785)
+  Rendered students/new.html.erb within layouts/turbo_rails/frame (Duration: 3.2ms | Allocations: 1864)
+  Rendered layout C:/Users/Filip/.local/share/gem/ruby/3.2.0/gems/turbo-rails-2.0.4/app/views/layouts/turbo_rails/frame.html.erb (Duration: 3.7ms | Allocations: 1967)
+Completed 422 Unprocessable Entity in 9ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 3077)
+
+
+Started GET "/groups" for 127.0.0.1 at 2024-04-25 23:14:04 +0200
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:11
+  Rendered groups/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 802)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 6262)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 0.1ms | Allocations: 6831)
+
+
+Started GET "/fields" for 127.0.0.1 at 2024-04-25 23:14:05 +0200
+Processing by FieldsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fields/index.html.erb within layouts/application
+  [1m[36mField Load (0.1ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/views/fields/index.html.erb:12
+  Rendered fields/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 873)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 6334)
+Completed 200 OK in 34ms (Views: 21.4ms | ActiveRecord: 0.1ms | Allocations: 8033)
+
+
+Started GET "/courses" for 127.0.0.1 at 2024-04-25 23:14:06 +0200
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:14
+  Rendered courses/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 901)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 6358)
+Completed 200 OK in 33ms (Views: 21.6ms | ActiveRecord: 0.2ms | Allocations: 10208)
+
+
+Started GET "/fields" for 127.0.0.1 at 2024-04-25 23:14:07 +0200
+Processing by FieldsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fields/index.html.erb within layouts/application
+  [1m[36mField Load (0.1ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/views/fields/index.html.erb:12
+  Rendered fields/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 604)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6047)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.1ms | Allocations: 6323)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2024-04-25 23:14:07 +0200
+Processing by CoursesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  [1m[36mField Load (0.1ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/views/courses/_form.html.erb:31
+  Rendered courses/_form.html.erb (Duration: 15.4ms | Allocations: 3001)
+  Rendered courses/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 3289)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 8731)
+Completed 200 OK in 46ms (Views: 33.1ms | ActiveRecord: 0.4ms | Allocations: 14865)
+
+
+Started POST "/courses" for 127.0.0.1 at 2024-04-25 23:14:10 +0200
+Processing by CoursesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "course"=>{"name"=>"das", "ects"=>"32", "egzam"=>"0"}, "commit"=>"Create Course"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:70:in `block in create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:70:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  [1m[36mField Load (0.1ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/views/courses/_form.html.erb:31
+  Rendered courses/_form.html.erb (Duration: 2.3ms | Allocations: 1671)
+  Rendered courses/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1750)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 7187)
+Completed 422 Unprocessable Entity in 24ms (Views: 18.7ms | ActiveRecord: 1.4ms | Allocations: 10057)
+
+
+Started POST "/courses" for 127.0.0.1 at 2024-04-25 23:14:14 +0200
+Processing by CoursesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "course"=>{"name"=>"das", "ects"=>"32", "egzam"=>"1"}, "commit"=>"Create Course"}
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  [1m[36mField Load (0.1ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/views/courses/_form.html.erb:31
+  Rendered courses/_form.html.erb (Duration: 2.0ms | Allocations: 1615)
+  Rendered courses/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1694)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 7131)
+Completed 422 Unprocessable Entity in 21ms (Views: 18.2ms | ActiveRecord: 0.1ms | Allocations: 8272)
+
+
+Started GET "/students" for 127.0.0.1 at 2024-04-25 23:14:16 +0200
+Processing by StudentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."group_id" ASC[0m
+  ↳ app/views/students/index.html.erb:18
+  Rendered students/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 672)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 6115)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.1ms | Allocations: 6411)
+
+
+Started GET "/groups" for 127.0.0.1 at 2024-04-25 23:14:17 +0200
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:11
+  Rendered groups/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 601)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 6045)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.1ms | Allocations: 6321)
+
+
+Started GET "/fields" for 127.0.0.1 at 2024-04-25 23:14:17 +0200
+Processing by FieldsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fields/index.html.erb within layouts/application
+  [1m[36mField Load (0.1ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/views/fields/index.html.erb:12
+  Rendered fields/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 600)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 6043)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.1ms | Allocations: 6318)
+
+
+Started GET "/courses" for 127.0.0.1 at 2024-04-25 23:14:17 +0200
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:14
+  Rendered courses/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 588)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 6031)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.1ms | Allocations: 6306)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:17:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant StudentsController):
+  
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:18:29 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant StudentsController):
+  
+Started GET "/index" for 127.0.0.1 at 2024-04-25 23:19:15 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/index.html" for 127.0.0.1 at 2024-04-25 23:19:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:19:21 +0200
+  
+ActionController::RoutingError (uninitialized constant StudentsController):
+  
+Started GET "/" for 127.0.0.1 at 2024-04-25 23:19:23 +0200
+  
+ActionController::RoutingError (uninitialized constant StudentsController):
+  
