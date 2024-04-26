@@ -1,0 +1,5 @@
+# config/locales/pl.yml
+pl:
+  date:
+    abbr_day_names: [niedz., pon., wt., śr., czw., pt., sob.]
+    day_names: ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota']

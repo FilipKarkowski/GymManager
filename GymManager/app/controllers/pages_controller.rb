@@ -1,16 +1,12 @@
 # app/controllers/pages_controller.rb
 class PagesController < ApplicationController
   def home
-    @week = (Date.today.beginning_of_week..Date.today.end_of_week).to_a
-  end
-
-  def set_week
-    selected_date = Date.parse(params[:week])
-    @week = (selected_date.beginning_of_week..selected_date.end_of_week).to_a
-    render :home
-  end
-
-  def refresh_plan
-    redirect_to root_path
+    @week_start = Date.today.beginning_of_week
+    @week_end = Date.today.end_of_week
+    @days = (@week_start..@week_end).to_a
+    @trainings_by_day = {}
+    @days.each do |day|
+      @trainings_by_day[day] = Schedule.where("date = ?", day).order(:time)
+    end
   end
 end

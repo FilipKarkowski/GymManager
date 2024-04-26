@@ -1,27 +1,29 @@
 <%= form_with(model: schedule) do |form| %>
-  <% if schedule.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
-
-      <ul>
-        <% schedule.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div>
-    <%= form.label :training_id, style: "display: block" %>
-    <%= form.text_field :training_id %>
+    <%= form.label :training_id, class: "block mb-1" %>
+    <%= form.text_field :training_id, class: "w-full rounded-md border-gray-300" %>
+    <% if schedule.errors.has_key?(:training_id) %>
+      <p style="color: red;"><%= schedule.errors[:training_id].first %></p>
+    <% end %>
   </div>
 
   <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
+    <%= form.label :date, class: "block mb-1" %>
+    <%= form.date_field :date, class: "w-full rounded-md border-gray-300" %>
+    <% if schedule.errors.has_key?(:date) %>
+      <p style="color: red;"><%= schedule.errors[:date].first %></p>
+    <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :time, class: "block mb-1" %>
+    <%= form.time_field :time, class: "w-full rounded-md border-gray-300" %>
+    <% if schedule.errors.has_key?(:time) %>
+      <p style="color: red;"><%= schedule.errors[:time].first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Zapisz", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
   </div>
 <% end %>

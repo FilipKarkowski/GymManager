@@ -1,12 +1,7 @@
-<div id="<%= dom_id training %>">
-  <p>
-    <strong>Name:</strong>
-    <%= training.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= training.description %>
-  </p>
-
+<div id="<%= dom_id training %>" class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
+  <p class="text-lg font-semibold"><strong>Nazwa:</strong> <%= training.name %></p>
+  <div class="mt-2">
+    <strong>Opis:</strong>
+    <%= simple_format(training.description) %>
+  </div>
 </div>

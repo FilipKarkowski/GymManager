@@ -2,13 +2,33 @@
 
 <h1>Schedules</h1>
 
-<div id="schedules">
-  <% @schedules.each do |schedule| %>
-    <%= render schedule %>
-    <p>
-      <%= link_to "Show this schedule", schedule %>
-    </p>
-  <% end %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Trening</th>
+      <th>Data</th>
+      <th>Godzina</th>
+      <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.training.name %></td>
+        <td><%= schedule.date.strftime("%d-%m-%Y") %></td>
+        <td><%= schedule.time.strftime("%H:%M") if schedule.time.present? %></td>
+        <td>
+          <%= link_to "Show", schedule, class: "btn btn-info btn-sm" %>
+          <%= link_to "Edit", edit_schedule_path(schedule), class: "btn btn-primary btn-sm" %>
+          <%= button_to "Destroy", schedule, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New schedule", new_schedule_path %>
+<%= link_to "New schedule", new_schedule_path, class: "btn btn-success" %>

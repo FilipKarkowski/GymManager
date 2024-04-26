@@ -1,10 +1,8 @@
-<h1>Editing training</h1>
+<h1 class="text-xl font-semibold mb-4">Edycja treningu</h1>
 
 <%= render "form", training: @training %>
 
-<br>
-
-<div>
-  <%= link_to "Show this training", @training %> |
-  <%= link_to "Back to trainings", trainings_path %>
+<div class="mt-4 flex justify-center">
+  <%= link_to "Pokaż ten trening", @training, class: "mr-4 py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600" %>
+  <%= link_to "Powrót do treningów", trainings_path, class: "py-2 px-4 bg-gray-400 text-white rounded-md hover:bg-gray-500" %>
 </div>

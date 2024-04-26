@@ -1,27 +1,29 @@
-<%= form_with(model: training) do |form| %>
-  <% if training.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(training.errors.count, "error") %> prohibited this training from being saved:</h2>
+<div class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
+  <%= form_with(model: training) do |form| %>
+    <% if training.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(training.errors.count, "błąd") %> uniemożliwiło zapisanie tego treningu:</h2>
 
-      <ul>
-        <% training.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% training.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :name, "Nazwa:", class: "block mb-1" %>
+      <%= form.text_field :name, class: "w-full rounded-md border-gray-300" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :description, "Opis:", class: "block mb-1" %>
+      <%= form.text_area :description, class: "w-full rounded-md border-gray-300" %>
+    </div>
+
+    <div>
+      <%= form.submit "Zapisz", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

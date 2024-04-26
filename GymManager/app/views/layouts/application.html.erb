@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Inf324</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Inf324</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-    <div class="container">
-      <%= render 'layouts/navbar' %>
-      <%= yield %>
-    </div>
-  </body>
+<body class="bg-gray-100">
+<div class="flex h-screen">
+  <nav class="bg-gray-800 w-1/6 h-full text-white py-8 px-4">
+    <ul>
+      <li><%= link_to "Karnety", memberships_path, class: "block text-white py-2 px-4 rounded-md hover:bg-gray-700" %></li>
+      <li><%= link_to "Harmonogramy", schedules_path, class: "block text-white py-2 px-4 rounded-md hover:bg-gray-700" %></li>
+      <li><%= link_to "Treningi", trainings_path, class: "block text-white py-2 px-4 rounded-md hover:bg-gray-700" %></li>
+      <li><%= link_to "Użytkownicy", users_path, class: "block text-white py-2 px-4 rounded-md hover:bg-gray-700" %></li>
+    </ul>
+  </nav>
+  <div class="container mx-auto p-8">
+    <%= yield %>
+  </div>
+</div>
+</body>
 </html>

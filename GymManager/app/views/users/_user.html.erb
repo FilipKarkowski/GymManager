@@ -1,17 +1,40 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
+<div id="<%= dom_id(user) %>" class="bg-white border border-gray-300 rounded-md shadow-md p-4 mb-4 flex items-center">
+  <!-- Lewa strona: Pseudoavatar i dane użytkownika -->
+  <div class="w-3/4 pr-4 flex items-center">
+    <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+      <span class="text-gray-600 font-semibold text-lg"><%= user.name.first.upcase %></span>
+    </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
+    <div>
+      <p class="mb-2">
+        <strong class="font-semibold">Imię:</strong>
+        <%= user.name %>
+      </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= user.phone %>
-  </p>
+      <p class="mb-2">
+        <strong class="font-semibold">Email:</strong>
+        <%= user.email %>
+      </p>
 
+      <p class="mb-2">
+        <strong class="font-semibold">Telefon:</strong>
+        <%= user.phone %>
+      </p>
+    </div>
+  </div>
+
+  <!-- Prawa strona: Liczba dni do końca karnetu lub informacja o braku karnetu -->
+  <div class="w-1/4 bg-blue-100 border border-blue-200 rounded-md p-2">
+    <% if user.membership.present? %>
+      <% days_left = (user.membership.end_date - Date.today).to_i %>
+      <% if days_left >= 0 %>
+        <p class="text-blue-700 font-semibold">Pozostało dni karnetu:</p>
+        <p class="text-blue-700 font-semibold"><%= days_left %></p>
+      <% else %>
+        <p class="text-red-700 font-semibold">Karnet wygasł</p>
+      <% end %>
+    <% else %>
+      <p class="text-red-700 font-semibold">Brak aktywnego karnetu</p>
+    <% end %>
+  </div>
 </div>

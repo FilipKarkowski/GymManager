@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :memberships, dependent: :destroy
+  has_one :membership, dependent: :destroy
 end
